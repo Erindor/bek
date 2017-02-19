@@ -67,14 +67,14 @@ class Pedido {
         return $this->produtos;
     }
 
-    function addProduto($produto){
+    private function addProduto($produto){
         if (!in_array($produto, $this->produtos)){
             $produto[] = $produto;
             $produto->addPedido($this);
         }       
     }
     
-    function removerProduto ($produto){
+    private function removerProduto ($produto){
         if (in_array($produto, $this->produtos)){
             unset($this->produtos[key($this->produtos)]);
             $produto->removerPedido($this);
